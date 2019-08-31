@@ -15,7 +15,7 @@ int main(){
 
     node n[len];
 
-    for(int i = 0; i < len - 1; ++i){
+    for(int i = 0; i < len - 1; ++i){   
         n[i].val = a[i];
         n[i].next = &n[i+1]; 
     }
