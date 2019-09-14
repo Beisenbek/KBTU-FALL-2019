@@ -32,25 +32,38 @@ struct labirint{
     set<string> obstacle;
     queue<cell *> q;
     int row_count, column_count;
+    int m;
+    int targetR;
+    int targetC;
 
-    labirint(int r, int c, int rc, int cc){
+
+    labirint(int r, int c, int rc, int cc, int tr, int tc){
         enqueue(r, c, 0);
         row_count = rc;
         column_count = cc;
+        targetR = tr;
+        targetC = tc;
+        m = -1;
     }
 
     void enqueue(int r, int c, int t){
-        q.push(new cell(r, c, 0));
+        q.push(new cell(r, c, t));
         used.insert(getId(r,c));
+        if(r == targetR && c == targetC){
+            m = t;
+        }
     }
 
     void step(int r, int c, int t){
+
         string id = getId(r, c);
-        if(r < 1 || c < 1) return;
+       
         if(r < 1 || c < 1) return;
         if(r > row_count || c > column_count) return;
+
         if(obstacle.find(id) != obstacle.end()) return;
-        if(used.find(id) != obstacle.end()) return;
+        if(used.find(id) != used.end()) return;
+
         enqueue(r, c, t + 1);
     }
 
@@ -69,33 +82,43 @@ struct labirint{
 int main(){
 
 
-    int row_count, column_count, startX, startY;
-    int targetX, targetY;
+    int row_count, column_count, startR, startC;
+    int targetR, targetC;
 
     cin >> row_count >> column_count;
-    cin >> startX >> startY;
-    cin >> targetX >> targetY;
+    cin >> startR >> startC;
+    cin >> targetR >> targetC;
 
-    labirint l(startX, startY, row_count, column_count);
+    labirint l(startR, startC, row_count, column_count, targetR, targetC);
 
     int obstacle_count;
-    int obstacleX;
-    int obstacleY;
+    int obstacleR;
+    int obstacleC;
+
+    cin >> obstacle_count;
 
     for(int i = 0; i < obstacle_count; ++i){
-        cin >> obstacleX >> obstacleY;
-        l.obstacle.insert(getId(obstacleX, obstacleY));
+        cin >> obstacleR >> obstacleC;
+        l.obstacle.insert(getId(obstacleR, obstacleC));
     }
 
     l.run();
 
-    string targetId = getId(targetX, targetY);
+    //string targetId = getId(targetC, targetR);
 
-    if(l.used.find(targetId) == l.used.end()){
+    /*if(l.used.find(targetId) == l.used.end()){
         cout << "impossible!";
     }else{
-        cout << "ok!";
+        cout << "ok!" << endl;
+        cout << l.m << endl;
+    }*/
+    
+    if(l.m == -1){
+        cout << "impossible!";
+    }else{
+        cout << "ok!" << endl;
+        cout << l.m << endl;
     }
-
+    
     return 0;
 }
