@@ -24,7 +24,7 @@ int find(int * a, int n, int x){
         }
     }
 
-    return nearest(a, l, x);
+    return nearest(a, l, x);   
 }
 
 int main(){
