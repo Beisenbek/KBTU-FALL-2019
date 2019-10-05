@@ -24,12 +24,7 @@ node * add(node * root, int x){
 }
 
 node * find(node * root, int x){
-    if(root == NUL
-    
-    L) return NULL;
-
-
-
+    if(root == NULL) return NULL;
     if(root->val == x) return root;
     if(root->val > x) return find(root->left, x);
     return find(root->right, x);

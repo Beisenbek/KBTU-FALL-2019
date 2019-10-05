@@ -1,0 +1,9 @@
+8
+push_back 20
+push_front 30
+front
+push_front 40
+reverse
+front
+back
+front
