@@ -35,6 +35,8 @@ int main(){
         cin >> a[i];
     }
 
+    
+
     int x;
     for(int i = 0; i < k; ++i){
         cin >> x;
