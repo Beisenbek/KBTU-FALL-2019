@@ -31,7 +31,7 @@ int main(){
     int t = 1;
     a[0][0] = 1;
 
-    for(int i = 0; i < k; ++i){
+    for(int i = 0; i < 2*n - 1; ++i){
         for(int j = 0; j < d[i]; ++j){
             r = r + dr[index]; 
             c = c + dc[index]; 
