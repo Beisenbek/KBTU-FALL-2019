@@ -62,7 +62,7 @@ node * remove(node * root, int val){
             return el;
         }else if(root->right != NULL && root->left != NULL){
             root->val = rightmost(root->left);
-            root->left = remove(root->left, val);
+            root->left = remove(root->left,  val);
             return root;
         }
     }else if(val < root->val){
@@ -76,18 +76,31 @@ node * remove(node * root, int val){
 
 int main(){
     node * root = NULL;
-    int a[] = {2, 3, 54, -1};
-    int n = sizeof(a) / sizeof(int);
+    // int a[] = {2, 3, 54, -1};
+    // int n = sizeof(a) / sizeof(int);
 
-    for(int i = 0; i < n; ++i){
-        root = add(root, a[i]);
+    // for(int i = 0; i < n; ++i){
+    //     root = add(root, a[i]);
+    // }
+
+    // print(root);
+    // cout << endl;
+    // remove(root, 54);
+    // remove(root, -1);
+    // print(root);
+
+    int n; cin >> n;
+    for (int i = 0; i < n; i++) {
+        string s; cin >> s;
+        int x; cin >> x;
+        if (s == "a") {
+            root = add(root, x);
+        } else {
+            root = remove(root, x);
+        }
+        print(root);
+        cout << endl;
     }
-
-    print(root);
-    cout << endl;
-    remove(root, 54);
-    remove(root, -1);
-    print(root);
 
     return 0;
 }
