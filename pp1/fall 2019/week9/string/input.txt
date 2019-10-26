@@ -1,0 +1,7 @@
+2
+mult all numbers
+4
+1 2 3 4
+sum numbers
+4
+1 2 3 4
