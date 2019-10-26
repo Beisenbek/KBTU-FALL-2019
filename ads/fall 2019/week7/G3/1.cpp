@@ -27,7 +27,7 @@ struct heap{
                 if(c + 1 < len && val[c] < val[c + 1]){
                     mpos = c + 1;
                 }
-                //int mpos = (val[c] < val[c + 1]) ? c : c + 1;
+                //int mpos = (val[c] < val[c + 1]) ? c : c + 1;  
                 if(val[p] < val[mpos]){
                     swap(val[p], val[mpos]);
                     p = mpos;
