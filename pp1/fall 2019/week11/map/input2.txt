@@ -1,0 +1,8 @@
+keyboard 100
+mouse 10
+printer 1
+printer -1
+pc 200
+pc -20
+keyboard -250
+monitor -10
