@@ -15,9 +15,11 @@ struct node{
 
 struct trie{
     node * root;
+    
     trie(){
         root = new node("/");
     }
+
     void addString(string s){
         node * cur = root;
         for(int i = 0; i < s.size(); ++i){
@@ -50,8 +52,6 @@ struct trie{
         }
         cout << endl;
     }
-
-   
 
     void print(node * cur){
         printNode(cur); 
