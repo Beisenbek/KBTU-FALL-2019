@@ -22,7 +22,7 @@ void calculateHashForAllPrefix(string text){
     h_i[0] = (text[0] - 'a' + 1);
     for(int i = 1; i < n; ++i){
         int k = (text[i] - 'a' + 1);
-        h_i[i] = k * p_i[i] % Q;
+        h_i[i] = (k * p_i[i]) % Q;
         if(i > 0){
             h_i[i] = (h_i[i] + h_i[i-1])% Q;
         }
@@ -35,7 +35,7 @@ int calculateHash(string pattern){
 
     for(int i = 0; i < n; ++i){
         int k = (pattern[i] - 'a' + 1);
-        h_p = (h_p +  k * p_i[i] % Q) % Q;
+        h_p = (h_p +  (k * p_i[i]) % Q) % Q;
     }
 
     return h_p;
