@@ -1,0 +1,6 @@
++1. &, cout << *p
+2. stack
+3. queue
+4. next_permutation
+
+
